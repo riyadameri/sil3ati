@@ -4,6 +4,7 @@ const router = express.Router();
 const supplier = require('../models/supplier');
 const Key = require('../models/key'); // Ensure the model name is capitalized for consistency
 const bcrypt = require('bcrypt') ;
+const key = require('../models/key');
 
 
 // Generate sequential key
@@ -67,20 +68,19 @@ router.post('/confirm/:id', async (req, res) => {
   if (!key || !name || !email || !password || !phone || !password ) {
     return res.status(422).json({ error: "Please add all the fields" });
   }
-
   try {
     const foundKey = await Key.findById(id);
     if (!foundKey || foundKey.key !== key) {
       return res.status(422).json({ error: "Invalid key" });
     }
-    salt = bcrypt.genSalt(10);
-    const pscr = bcrypt.hashSync(password,salt)
+    hashedPassword = await bcrypt.hash(password,10)
     const newSupplier = new supplier({
       name,
       email,
       phone,
       address,
       date: new Date(),
+      password : hashedPassword ,
       profile_Picture
     });
     await newSupplier.save();
@@ -90,4 +90,27 @@ router.post('/confirm/:id', async (req, res) => {
     return res.status(500).json({ error: "Server error" });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+router.delete('/removeEvryThink',
+  (req,res)=>{
+    key.deleteMany()
+      .then(
+        console.log("done")
+      )
+    supplier.deleteMany()
+    .then(
+      console.log("done")
+    )
+  }
+)
 module.exports = router;
