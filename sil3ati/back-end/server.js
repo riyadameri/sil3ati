@@ -9,7 +9,7 @@ const connection = require('./config/connection');
 app.use(express.json());
 
 //routers apis
-supplierApi = require('./router/supplier')
+supplierApi = require('./router/user')
 
 // import router
 app.use('/supplier',supplierApi)
