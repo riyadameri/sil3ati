@@ -14,6 +14,8 @@ import { SupplierComponent } from './component/servicePages/supplier/supplier.co
 import { ShopComponent } from './component/servicePages/shop/shop.component';
 import { CreateProductComponent } from './component/servicePages/create-product/create-product.component';
 import { SeeProductComponent } from './component/servicePages/see-product/see-product.component';
+import { FormsModule } from '@angular/forms';
+import { KeyPassComponent } from './component/account/key-pass/key-pass.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { SeeProductComponent } from './component/servicePages/see-product/see-pr
     SupplierComponent,
     ShopComponent,
     CreateProductComponent,
-    SeeProductComponent
+    SeeProductComponent,
+    KeyPassComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()

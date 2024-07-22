@@ -1,1 +1,67 @@
-<p>register works!</p>
+<div class="container-login">
+    <img src="assets/background.jpg" class="bg">
+    <!--login container-->
+    <div class='wrapper'>
+        <div class="form-box register">
+            <h2>Register</h2>
+            <form action="#" method="#">
+                <div class="input-box errorEmail" >
+                    <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                    <input [(ngModel)]="email" type="email" name="email" required >
+                    <label>Email</label>
+                    <p class="demo">you can't input is null</p>
+                </div>
+                <div class="input-box pass">
+                    <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                    <input [(ngModel)]="password" type="password" name="password" required >
+                    <label>Password</label>
+                    <p class="demo">you password is less from 8 letters</p>
+                </div>
+                <div class="input-box confPass">
+                    <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                    <input [(ngModel)]="confirmPass" type="password" name="confirmPassword" required  >
+                    <label>Confirm Password</label>
+                    <p class="demo">your password is not same</p>
+                </div>
+                <div class="Remember">
+                    <p><input type="checkbox" name="remember-me" id='' class="checkbox"><label>I agree to the terms & condition</label></p>
+                </div>
+                <button (click)="confirm()">Register</button>
+            </form>
+            <div class="Register">
+                <label>Do have a account <a>Register</a></label>
+            </div>
+            <div class="get-app">
+                <label>Get The App</label>
+            </div>
+            <div class="application">
+                <a><img src="" alt=""></a>
+                <hr>
+                <a><img src="" alt=""></a>
+            </div>
+        </div>
+
+        <div class="form-box create">
+            <span class="revers" (click)="reverss()"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+            <h2>Create Account</h2>
+            <form action="#" method="#">
+                <div class="input-box">
+                    <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <input type="text" name="email" required>
+                    <label style="top: -20px;">Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                    <input type="number" name="password" required>
+                    <label style="top: -20px;">Phone Number</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
+                    <input type="date" name="password" required>
+                    <label style="top: -20px;">Your birthday</label>
+                </div>
+                <button> Create a New Account </button>
+            </form>
+        </div>
+    </div>
+</div>
