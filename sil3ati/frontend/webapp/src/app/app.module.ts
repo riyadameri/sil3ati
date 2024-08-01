@@ -16,6 +16,10 @@ import { CreateProductComponent } from './component/servicePages/create-product/
 import { SeeProductComponent } from './component/servicePages/see-product/see-product.component';
 import { FormsModule } from '@angular/forms';
 import { KeyPassComponent } from './component/account/key-pass/key-pass.component';
+import {HttpClientModule } from '@angular/common/http';
+import { SuccessRegisterComponent } from './component/account/register/success-register/success-register.component';
+import { FailureRegisterComponent } from './component/account/register/failure-register/failure-register.component';
+
 
 @NgModule({
   declarations: [
@@ -31,12 +35,15 @@ import { KeyPassComponent } from './component/account/key-pass/key-pass.componen
     ShopComponent,
     CreateProductComponent,
     SeeProductComponent,
-    KeyPassComponent
+    KeyPassComponent,
+    SuccessRegisterComponent,
+    FailureRegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [
     provideClientHydration()
