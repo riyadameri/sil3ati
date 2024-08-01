@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div *ngIf="active === 'edit'">
+  <div class="card">
+    <form (ngSubmit)="handleSubmit($event)">
+      <h1>Your
+      </h1>
+      <label class="custom-file-upload fas">
+        <div class="img-wrap">
+          <img [src]="imagePreviewUrl"/>
+        </div>
+        <input id="photo-upload" type="file" (change)="($event)"/>
+      </label>
+      <div class="field">
+        <label for="name">name:</label>
+        <input id="name" type="text" [(ngModel)]="name" maxlength="25" placeholder="Alexa" name="name" required/>
+      </div>
+      <div class="field">
+        <label for="status">status:</label>
+        <input id="status" type="text" [(ngModel)]="status" maxlength="35" placeholder="It's a nice day!" name="status" required/>
+      </div>
+      <button type="submit" class="save">Save</button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="active === 'profile'">
+  <div class="card">
+    <form (ngSubmit)="handleSubmit($event)">
+      <h1>Profile Card</h1>
+      <label class="custom-file-upload fas">
+        <div class="img-wrap">
+          <img [src]="imagePreviewUrl"/>
+        </div>
+      </label>
+      <div class="name">{{ name }}</div>
+      <div class="status">{{ status }}</div>
+      <button type="submit" class="edit">Edit Profile</button>
+    </form>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class CreateService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  addProfileImage(userImage: any, userId: any) {
+    return this.http.put(`http://127.0.0.1:3000/supplier/updateProfilePicture/${userId}`, userImage);
+  }
 }
