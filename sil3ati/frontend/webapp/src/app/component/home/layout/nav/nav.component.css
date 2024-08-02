@@ -213,7 +213,14 @@
     opacity: 0;
 }
 .sidebar .profile .name{
-    color: #fff;
+    opacity: 0;
+    background: navy;
+    
+}
+.sidebar.open .profile .name-job .name{
+    opacity: 1;
+    pointer-events: auto;
+    color: #000000;
     font-size: 15px;
     font-weight: 400;
     white-space: nowrap;
@@ -221,17 +228,10 @@
     pointer-events: none;
     transition: 0.4s;
     margin: 0 10px;
-    background: transparent;
-    display: none;
+    
+    
 }
-.sidebar.open .profile .name{
-    opacity: 1;
-    pointer-events: auto;
-    display: block;
-}
-.sidebar.open .profile .name:hover{
-    background: transparent;
-}
+
 .sidebar.open .profile #log_out{
     width: 50px;
     background: transparent;
