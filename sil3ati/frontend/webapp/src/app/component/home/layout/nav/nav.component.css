@@ -62,11 +62,12 @@
 
 .sidebar i{
     color: white;
-    height: 20px;
-    min-height: 10px;
+    height: 50px;
+    min-height: 40px;
     font-size: 28px;
     text-align: center;
     line-height: 60px;
+    margin: 0 16px;
 }
 .sidebar .nav_list{
     margin-top: 20px;
@@ -113,7 +114,7 @@
 .sidebar.open li .tooltip{display: none;}
 
 .sidebar input{
-    font-size: 15px;
+    font-size: 17px;
     color: white;
     font-weight: 400;
     outline: none;
@@ -123,16 +124,126 @@
     border-radius: 12px;
     transition: all 0.5s ease;
     background-color: #01e175;
+    opacity: 0;
 }
 .sidebar.open input{
     padding: 0 20px 0 50px;
     width: 100%;
+    opacity: 1;
 }
 .sidebar .fa-search{
     position: absolute;
-    top: 50%;
-    left: 0;
+    top: 100%;
+    left: -15px;
     transform: translateY(-50px);
     font-size: 22px;
-    background: #1d1b31;
+    background:transparent;
+    padding: 0 15px;
+}
+.sidebar.open .fa-search:hover{
+    background: white;
+    color: #00BF63;
+}
+.sidebar .fa-search:hover{
+    background:white;
+    color: #00dc72;
+}
+
+.sidebar li div{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    transition: all 0.4s ease;
+    background: #00BF63;
+    text-align: center;
+    padding: 0px;
+    cursor: pointer;
+}
+.sidebar li div:hover{background: rgb(254, 254, 254);}
+.sidebar li div .links_names{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    margin: 0 10px;
+}
+.sidebar.open li div .links_names{
+    opacity: 1;
+    pointer-events: auto;
+}
+.sidebar li div:hover .links_names,
+.sidebar li div:hover i{
+    transition: all 0.4s ease;
+    color: #00BF63;
+}
+.sidebar li i{
+    height: 50px ;
+    line-height: 50px ;
+    font-size: 18px ;
+    border-radius: 12px ;
+}
+.sidebar li .profile{
+    position: fixed;
+    height: 60px;
+    width: 78px;
+    left: 0;
+    bottom: -30px;
+    padding: 10px 14px;
+    background: #00BF63;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+
+.sidebar .profile #log_out{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: transparent;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 0px;
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+.sidebar .profile .name{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    margin: 0 10px;
+    background: transparent;
+    display: none;
+}
+.sidebar.open .profile .name{
+    opacity: 1;
+    pointer-events: auto;
+    display: block;
+}
+.sidebar.open .profile .name:hover{
+    background: transparent;
+}
+.sidebar.open .profile #log_out{
+    width: 50px;
+    background: transparent;
+    opacity: 1;
+}
+
+.rotate{
+    transform: rotate(-90deg);
+}
+
+@media (max-width: 420px){
+    .sidebar li .tooltip{
+        display: none;
+    }
 }
