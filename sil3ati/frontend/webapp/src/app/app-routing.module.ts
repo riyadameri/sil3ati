@@ -7,6 +7,7 @@ import { SuccessRegisterComponent } from './component/account/register/success-r
 import { FailureRegisterComponent } from './component/account/register/failure-register/failure-register.component';
 
 const routes: Routes = [
+  {path:'home', component: HomePageComponent },
   {path:'',component:HomePageComponent},
   {path:'register', component : RegisterComponent},
   {path:'login', component : LoginComponent},
