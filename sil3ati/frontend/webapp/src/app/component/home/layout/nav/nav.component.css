@@ -160,6 +160,7 @@
     text-align: center;
     padding: 0px;
     cursor: pointer;
+    
 }
 .sidebar li div:hover{background: rgb(254, 254, 254);}
 .sidebar li div .links_names{
@@ -192,50 +193,36 @@
     height: 60px;
     width: 78px;
     left: 0;
-    bottom: -30px;
+    bottom: -8px;
     padding: 10px 14px;
     background: #00BF63;
     transition: all 0.4s ease;
     overflow: hidden;
 }
 
-
+.sidebar.open li .profile{width: 250px;}
 .sidebar .profile #log_out{
     position: absolute;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    background: transparent;
+    background: #00BF63;
     height: 60px;
     line-height: 60px;
     border-radius: 0px;
     transition: all 0.5s ease;
-    opacity: 0;
 }
-.sidebar .profile .name{
-    opacity: 0;
-    background: navy;
-    
-}
-.sidebar.open .profile .name-job .name{
-    opacity: 1;
-    pointer-events: auto;
-    color: #000000;
-    font-size: 15px;
-    font-weight: 400;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.4s;
-    margin: 0 10px;
-    
-    
-}
-
 .sidebar.open .profile #log_out{
     width: 50px;
-    background: transparent;
-    opacity: 1;
+    background: none;
+}
+.name{
+    color: white;
+    margin-left: 10px;
+}
+
+.sidebar.open .name{
+    opacity: 0;
 }
 
 .rotate{
