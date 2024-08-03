@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.5s;
+  }
+  
+  .bg {
+    position: absolute;
+    width: 100%;
+    height: 130%;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+  }
+  
+  .container-login {
+    display: flex;
+    padding: 0px;
+    justify-content: center;
+  }
+  
+  .wrapper {
+    position: relative;
+    width: 440px;
+    height: auto;
+    padding: 30px;
+    margin: 50px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(242, 242, 242, 0.6);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.5s;
+  }
+  
+  .small {
+    height: 1000px;
+    transition: 0.5s;
+  }
+  
+  .form-box {
+    position: relative;
+    padding: 40px;
+    width: 100%;
+    padding-bottom: 130px;
+    text-align: center;
+    transition: 5s;
+  }
+  
+  .form-box .revers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    font-size: 1.5em;
+    background-color: #64d488;
+    color: #f2f2f2;
+    padding: 10px 20px;
+    border-radius: 10px 0 10px 0;
+    cursor: pointer;
+  }
+  
+  .form-box h2 {
+    font-size: 2em;
+    font-weight: 700;
+  }
+  
+  .input-box {
+    position: relative;
+    margin: 30px 0;
+    height: 50px;
+    width: 300px;
+    border-radius: 25px;
+    border: solid 1px #f2f2f2ac;
+    transition: 0.5s;
+  }
+  
+  .input-box label {
+    position: absolute;
+    top: 0%;
+    left: 25px;
+    transform: translateY(50%);
+    font-size: 1rem;
+    transition: 0.5s;
+  }
+  
+  .input-box input {
+    width: 100%;
+    height: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0 45px 0 5px;
+    font-size: 1rem;
+    transition: 0.5s;
+    padding-left: 25px;
+  }
+  
+  .input-box input:focus ~ label,
+  .input-box input:valid ~ label {
+    top: -20px;
+    background: #64d488;
+    padding: 0 10px;
+    color: rgb(255, 255, 255);
+    border-radius: 30px;
+    font-size: 15px;
+  }
+  
+  .input-box .icon {
+    position: absolute;
+    top: 11px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    color: rgb(46, 28, 0);
+  }
+  
+  .form-box .Remember {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-box .Remember .checkbox {
+    zoom: 1.4;
+  }
+  
+  .form-box .Remember label {
+    position: relative;
+    top: -3px;
+    margin: 3px;
+  }
+  
+  .form-box .Remember a {
+    position: relative;
+    top: -3px;
+    color: rgb(79, 163, 0);
+    text-decoration: none;
+  }
+  .cor{
+    margin-top : 20px
+  }
+  .form-box form button {
+    width: 100%;
+    height: 60px;
+    margin: 10px;
+    text-align: center;
+    align-items: center;
+    font-size: 1.5em;
+    background-color: #64d488;
+    color: #f2f2f2;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    left: -6px;
+  }
+  
+  .form-box form button:hover {
+    color: #64d488;
+    background-color: #f2f2f2;
+    transform:matrix3d(10);
+    border-radius: 50px;
+  }
+  
+  .Register {
+    font-size: 0.9em;
+    margin: 10px;
+  }
+  
+  .Register a {
+    position: relative;
+    color: rgb(79, 163, 0);
+  }
+  
+  .application {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+  }
+  
+  hr {
+    width: 2px;
+    height: 30px;
+    background-color: rgb(79, 163, 0);
+    border: none;
+  }
+  
+  .create {
+    right: -30px;
+    transition: 0.5s;
+  }
+  
+  .activeleft {
+    left: -440px;
+  }
+  
+  .activeright {
+    left: -370px;
+  }
+  
+  .error {
+    border: solid 2px #ff0000ac;
+  }
+  
+  .emailexsist {
+    color: red;
+  }
+  
+  /* Additional CSS for email confirmation */
+  .confirmEmail {
+    display: none;
+  }
+  
+  .showConfirmEmail .confirmEmail {
+    display: block;
+  }
+  
+  /* Adjust error message styles */
+  .demo {
+    color: red;
+    font-size: 0.8em;
+    text-align: left;
+    margin: 5px;
+    display: none;
+  }
+  
+  .ERRmail, .ERRpass, .ERRconf, .ERRconfirmEmail {
+    display: block;
+  }
+  .confirm {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .confirm h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+  
+  .confirm .confirmation-input {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .confirm .confirmation-input input {
+    width: 40px; /* Adjust width as needed */
+    height: 40px;
+    font-size: 1.5em;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .confirm .confirmation-input input:focus {
+    border-color: #ff7b16;
+  }
+  
+  .confirm .confirmation-input input:invalid {
+    border-color: red;
+  }
+  
+  .confirm .cor {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .confirm .cor button {
+    flex: 1;
+    margin: 0 5px;
+    height: 50px;
+    font-size: 1em;
+    background-color: #ff7b16;
+    color: #fff;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .confirm .cor button:hover {
+    background-color: #ff5714;
+  }
