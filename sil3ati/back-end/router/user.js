@@ -6,7 +6,8 @@ const Key = require('../models/key');
 const bcrypt = require('bcrypt');
 const multer = require('multer');
 const path = require('path');
-const jwt = require('jwt');
+const jwt = require('jsonwebtoken');
+const supplier = require('../models/user');
 
 // Configure multer storage
 const storage = multer.diskStorage({
@@ -146,14 +147,78 @@ router.post('/login', async (req, res) => {
         id : foundUser._id,
         profile_Picture : foundUser.profile_Picture,
         shopOrSupplier : foundUser.shopOrSupplier,
+      },
+      'hgjkhgkjtygjhktg86r565GFHGHFTWFERgjhghgRiyadAmeri',
+      { expiresIn: "1h" } 
+    )
+    return res.status(200).json(
+      { 
+        success: true,
+        status: 200,
+        name: foundUser.name,
+        email: foundUser.email,
+        id: foundUser._id,
+        profile_Picture: foundUser.profile_Picture,
+        shopOrSupplier: foundUser.shopOrSupplier,
+        date: foundUser.date,
+        message: "Login successful",
+        token: token ,
       }
     )
-
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: "Server error" });
   }
 });
+
+// Get all suppliers
+router.get('/getSupplier', async (req, res) => {
+  try {
+    const suppliers = await Supplier.find();
+    return res.status(200).json({
+      message: "Suppliers fetched successfully",
+      data: suppliers.map(
+        (supplier) => ({
+          name: supplier.name,
+          email: supplier.email,
+          id: supplier._id,
+          profile_Picture: supplier.profile_Picture,
+          shopOrSupplier: supplier.shopOrSupplier,
+          date: supplier.date
+        })
+      )
+    }
+      );
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: "Server error" });
+  }
+});
+//get Supplier By Id
+router.get('/getSupplierById/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const foundSupplier = await Supplier.findById(id);
+    if (!foundSupplier) {
+      return res.status(404).json({ error: "Supplier not found" });
+    }
+    return res.status(200).json({
+      message: "Supplier fetched successfully",
+      data: {
+        name: foundSupplier.name,
+        email: foundSupplier.email,
+        id: foundSupplier._id,
+        profile_Picture: foundSupplier.profile_Picture,
+        shopOrSupplier: foundSupplier.shopOrSupplier,
+        date: foundSupplier.date
+      }
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: "Server error" });
+  }
+});
+
 
 
 module.exports = router;

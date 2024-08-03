@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const supplier = mongoose.model("Supplier", 
+const supplier = mongoose.model("User", 
   {
     name: String,
     email: String,

@@ -9,9 +9,13 @@ app.use(cors())
 // using json to access external data
 app.use(express.json());
 //routers apis
-supplierApi = require('./router/user')
+AccountApi = require('./router/user')
+productsApi = require('./router/product')
+
+
 // import router
-app.use('/supplier',supplierApi)
+app.use('/user',AccountApi);
+app.use('/products',productsApi);
 
 //creating server
 port = process.env.PORT || 3000
