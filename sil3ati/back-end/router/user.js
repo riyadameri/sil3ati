@@ -1,16 +1,18 @@
 const nodemailer = require('nodemailer');
 const express = require('express');
 const router = express.Router();
-const Supplier = require('../models/user'); // Use a capitalized model name for consistency
-const Key = require('../models/key'); // Ensure the model name is capitalized for consistency
+const Supplier = require('../models/user');
+const Key = require('../models/key');
 const bcrypt = require('bcrypt');
 const multer = require('multer');
 const path = require('path');
+const jwt = require('jsonwebtoken');
+const supplier = require('../models/user');
 
 // Configure multer storage
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/user/profile_Picture');
+    cb(null, 'uploads/user/profile_Pictures'); // Adjusted to be plural
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + 'redox' + '-' + Math.round(Math.random() * 1e9) + path.extname(file.originalname);
@@ -35,7 +37,7 @@ router.post('/newAccount', async (req, res) => {
   try {
     const savedUser = await Supplier.findOne({ email });
     if (savedUser) {
-      return res.status(422).json({ error: "User already exists with that email" });
+      return res.status(422).json({ success: false, error: "User already exists with that email" });
     }
     const confirmationKey = generateKey();
     const newKey = new Key({ key: confirmationKey });
@@ -60,7 +62,7 @@ router.post('/newAccount', async (req, res) => {
         return res.status(500).json({ error: "Error sending email" });
       } else {
         console.log('Email sent: ' + info.response);
-        return res.status(200).json({ message: `Data sent. Please confirm with the ID: ${newKey._id}` });
+        return res.status(200).json({ confirmId: newKey._id, message: `Data sent. Please confirm with the ID: ${newKey._id}` });
       }
     });
   } catch (err) {
@@ -73,7 +75,6 @@ router.post('/newAccount', async (req, res) => {
 router.post('/confirm/:id', async (req, res) => {
   const { id } = req.params;
   const { key, name, email, password, phone, address } = req.body;
-
   if (!key || !name || !email || !password || !phone || !address) {
     return res.status(422).json({ error: "Please add all the fields" });
   }
@@ -95,7 +96,8 @@ router.post('/confirm/:id', async (req, res) => {
     await Key.findByIdAndDelete(id); 
     return res.status(200).json({
       message: "Key confirmed and account created successfully",
-      data: newSupplier
+      data: newSupplier,
+      success: true
     });
   } catch (err) {
     console.log(err);
@@ -121,26 +123,102 @@ router.put('/updateProfilePicture/:id', upload.single('profile_Picture'), async 
   }
 });
 
-// login
-router.get('/login', async (req, res) => {
+// Login route - Changed to POST request
+router.post('/login', async (req, res) => {
   const { email, password } = req.body;
+  
   if (!email || !password) {
     return res.status(422).json({ error: "Please add all the fields" });
   }
   try {
     const foundUser = await Supplier.findOne({ email });
-    if (!foundUser) {
+    if (!foundUser) { 
       return res.status(404).json({ error: "User not found" });
     }
     const isMatch = await bcrypt.compare(password, foundUser.password);
     if (!isMatch) {
       return res.status(422).json({ error: "Invalid credentials" });
     }
-    return res.status(200).json({ message: "Login successful", data: foundUser });  
+    //return res.status(200).json({ message: "Login successful", data: foundUser });  
+    const token = jwt.sign(
+      {
+        name : foundUser.name,
+        email : foundUser.email,
+        id : foundUser._id,
+        profile_Picture : foundUser.profile_Picture,
+        shopOrSupplier : foundUser.shopOrSupplier,
+      },
+      'hgjkhgkjtygjhktg86r565GFHGHFTWFERgjhghgRiyadAmeri',
+      { expiresIn: "1h" } 
+    )
+    return res.status(200).json(
+      { 
+        success: true,
+        status: 200,
+        name: foundUser.name,
+        email: foundUser.email,
+        id: foundUser._id,
+        profile_Picture: foundUser.profile_Picture,
+        shopOrSupplier: foundUser.shopOrSupplier,
+        date: foundUser.date,
+        message: "Login successful",
+        token: token ,
+      }
+    )
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: "Server error" });
   }
 });
+
+// Get all suppliers
+router.get('/getSupplier', async (req, res) => {
+  try {
+    const suppliers = await Supplier.find();
+    return res.status(200).json({
+      message: "Suppliers fetched successfully",
+      data: suppliers.map(
+        (supplier) => ({
+          name: supplier.name,
+          email: supplier.email,
+          id: supplier._id,
+          profile_Picture: supplier.profile_Picture,
+          shopOrSupplier: supplier.shopOrSupplier,
+          date: supplier.date
+        })
+      )
+    }
+      );
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: "Server error" });
+  }
+});
+//get Supplier By Id
+router.get('/getSupplierById/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const foundSupplier = await Supplier.findById(id);
+    if (!foundSupplier) {
+      return res.status(404).json({ error: "Supplier not found" });
+    }
+    return res.status(200).json({
+      message: "Supplier fetched successfully",
+      data: {
+        name: foundSupplier.name,
+        email: foundSupplier.email,
+        id: foundSupplier._id,
+        profile_Picture: foundSupplier.profile_Picture,
+        shopOrSupplier: foundSupplier.shopOrSupplier,
+        date: foundSupplier.date
+      }
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: "Server error" });
+  }
+});
+
+
 
 module.exports = router;

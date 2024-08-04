@@ -3,6 +3,7 @@ import { CreateService } from '../../../services/create.service';
 import { Router } from '@angular/router';
 import { error } from 'console';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,18 +28,26 @@ export class LoginComponent {
     });
   }
 
-  constructor( private http : CreateService , private router: Router){}
+  constructor( private _shared : CreateService , private router: Router){}
 
-  checkpass(){
-    this.http.checkpassword(this.user)
-      .subscribe((res) => {
-        console.log(res);
-      },
-      (error)=>{
-        console.error('error checking password',error);
-      }
-    );
+  checkpass() {
+    this._shared.checkpassword(this.user)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.router.navigate(['/home']);
+          alert('Login successfully');
+        },
+        error => {
+          console.log('Error checking password:', error);
+          this.router.navigate(['/failure-register']);
+          alert('Login failed: ' + error.message);
+        }
+      );
   }
+
+
+
 
   
 

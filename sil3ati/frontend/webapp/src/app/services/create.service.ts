@@ -13,6 +13,6 @@ export class CreateService {
   }
 
   checkpassword(user:any){
-    return this.http.get('http://127.0.0.1:3000/supplier/login',user);
+    return this.http.post('http://127.0.0.1:3000/user/login',user);
   }
 }
