@@ -6,18 +6,82 @@
 
 .home{
     overflow-x: hidden;
+    width: 95%;
+    right:-5%;
+    
 }
 
 .home img{
     filter: brightness(50%);
     position: absolute;
     width: 100%;
-    height: 100vh;
-    z-index: 0;
+    height: 100%;
+    z-index: -1;
 }
-.home h1{
+.title{
     text-align: center;
+    padding: 0 20px;
+    width: calc(100% - 100px);
+    position: absolute;
+    right: 11px;
     color: white;
-    font-size: 2.5em;
+    font-size: 1.5em;
     z-index: 999;
+}
+.btn_order{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    padding: 5px;
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 150px;
+    cursor: pointer;
+}
+.btn_order i{
+    margin: 7px;
+    font-size: 1.5em;
+    position: absolute;
+    top: -5px;
+    right: 110px;
+    cursor: pointer;
+}
+.btn_order::before{
+    content: '1';
+    background-color:rgb(0, 224, 134) ;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 0.5em;
+    font-weight:bold;
+    padding: 5px;
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    height: 10px;
+    width: 10px;
+    display: block;
+    text-align: center;
+    justify-content: center;
+}
+.btn_new_product{
+    background-color:#00983f ;
+    width: calc(100% - 100px);
+    position: absolute;
+    right: 11px;
+    top:220px;
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+    border: none;
+    height: 60px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.btn_new_product:hover{
+    color:#00983f;
+    background-color: #70ffa7;
 }

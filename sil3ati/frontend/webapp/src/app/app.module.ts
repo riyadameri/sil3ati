@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/account/login/login.component';
@@ -16,9 +15,10 @@ import { CreateProductComponent } from './component/servicePages/create-product/
 import { SeeProductComponent } from './component/servicePages/see-product/see-product.component';
 import { FormsModule } from '@angular/forms';
 import { KeyPassComponent } from './component/account/key-pass/key-pass.component';
-import {HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SuccessRegisterComponent } from './component/account/register/success-register/success-register.component';
 import { FailureRegisterComponent } from './component/account/register/failure-register/failure-register.component';
+import { ProductsComponent } from './component/home/products/products.component';
 
 
 @NgModule({
@@ -37,7 +37,8 @@ import { FailureRegisterComponent } from './component/account/register/failure-r
     SeeProductComponent,
     KeyPassComponent,
     SuccessRegisterComponent,
-    FailureRegisterComponent
+    FailureRegisterComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
