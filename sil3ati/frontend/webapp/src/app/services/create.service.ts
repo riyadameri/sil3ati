@@ -11,4 +11,8 @@ export class CreateService {
   addProfileImage(userImage: any, userId: any) {
     return this.http.put(`http://127.0.0.1:3000/supplier/updateProfilePicture/${userId}`, userImage);
   }
+
+  checkpassword(user:any){
+    return this.http.post('http://127.0.0.1:3000/user/login',user);
+  }
 }

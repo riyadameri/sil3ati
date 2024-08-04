@@ -20,3 +20,7 @@ const supplier = mongoose.model("User",
 )
 
 module.exports = supplier; 
+
+
+    
+      

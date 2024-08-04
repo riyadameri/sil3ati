@@ -35,7 +35,7 @@ export class RegisterComponent {
     this.http.post(`http://127.0.0.1:3000/supplier/confirm/${this.confirmId}`, this.user).subscribe(
       (res: any) => {
         if (res.success) {
-          this.router.navigate(['/confirmation-success']);
+          this.router.navigate(['success-register'])
           this.userId = res.data._id ;
           localStorage.setItem('userAccountId',`${this.userId}`)
 
