@@ -5,9 +5,11 @@ import { RegisterComponent } from './component/account/register/register.compone
 import { LoginComponent } from './component/account/login/login.component';
 import { SuccessRegisterComponent } from './component/account/register/success-register/success-register.component';
 import { FailureRegisterComponent } from './component/account/register/failure-register/failure-register.component';
+import { NewProductComponent } from './component/home/products/new-product/new-product.component';
 
 const routes: Routes = [
   {path:'home', component: HomePageComponent },
+  {path:'newProduct', component: NewProductComponent },
   {path:'',component:HomePageComponent},
   {path:'register', component : RegisterComponent},
   {path:'login', component : LoginComponent},
