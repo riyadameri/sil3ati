@@ -15,41 +15,41 @@ export class SuccessRegisterComponent {
 
   constructor(private http: HttpClient) {}
 
-  onFileSelected(event: any) {
-    const reader = new FileReader();
-    const file = event.target.files[0];
-    reader.onloadend = () => {
-      this.file = file;
-      this.imagePreviewUrl = reader.result as string;
-    };
-    if (file) {
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.file = file;
+        this.imagePreviewUrl = reader.result as string;
+      };
       reader.readAsDataURL(file);
     }
   }
 
-  handleSubmit(event: Event) {
+  handleSubmit(event: Event): void {
     event.preventDefault();
     if (this.active === 'edit' && this.file) {
       const userAccountId = localStorage.getItem('userAccountId');
       if (userAccountId) {
         const formData = new FormData();
         formData.append('profile_Picture', this.file);
-        // Send formData to the server
-        // Example:
-        // this.http.post(`your-api-endpoint/${userAccountId}`, formData).subscribe(response => {
-        //   console.log('Profile picture uploaded', response);
-        // });
+        this.http.post(`jhk/${userAccountId}`, formData).subscribe({
+          next: response => console.log('Profile picture uploaded', response),
+          error: error => console.error('Upload error', error)
+        });
       }
     }
     this.active = this.active === 'edit' ? 'profile' : 'edit';
   }
 
-  editProfile() {
+  editProfile(): void {
     this.active = 'edit';
   }
 
-  saveChanges() {
+  saveChanges(): void {
+    this.handleSubmit(new Event('submit'));
     this.active = 'profile';
-    this.handleSubmit(new Event('submit')); // Trigger the handleSubmit logic if needed
   }
 }
