@@ -43,7 +43,7 @@ export class SuccessRegisterComponent {
     }
     this.active = this.active === 'edit' ? 'profile' : 'edit';
   }
-
+  
   editProfile(): void {
     this.active = 'edit';
   }

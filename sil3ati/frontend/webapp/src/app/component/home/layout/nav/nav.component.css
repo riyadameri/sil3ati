@@ -234,3 +234,7 @@
         display: none;
     }
 }
+.logOut{
+  position : relative ;
+  bottom: -40px ;
+}

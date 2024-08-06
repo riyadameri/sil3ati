@@ -126,7 +126,7 @@ router.put('/updateProfilePicture/:id', upload.single('profile_Picture'), async 
 // Login route - Changed to POST request
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
-  
+
   if (!email || !password) {
     return res.status(422).json({ error: "Please add all the fields" });
   }
@@ -139,37 +139,37 @@ router.post('/login', async (req, res) => {
     if (!isMatch) {
       return res.status(422).json({ error: "Invalid credentials" });
     }
-    //return res.status(200).json({ message: "Login successful", data: foundUser });  
+
     const token = jwt.sign(
       {
-        name : foundUser.name,
-        email : foundUser.email,
-        id : foundUser._id,
-        profile_Picture : foundUser.profile_Picture,
-        shopOrSupplier : foundUser.shopOrSupplier,
-      },
-      'hgjkhgkjtygjhktg86r565GFHGHFTWFERgjhghgRiyadAmeri',
-      { expiresIn: "1h" } 
-    )
-    return res.status(200).json(
-      { 
-        success: true,
-        status: 200,
         name: foundUser.name,
         email: foundUser.email,
         id: foundUser._id,
         profile_Picture: foundUser.profile_Picture,
         shopOrSupplier: foundUser.shopOrSupplier,
-        date: foundUser.date,
-        message: "Login successful",
-        token: token ,
-      }
-    )
+      },
+      'hgjkhgkjtygjhktg86r565GFHGHFTWFERgjhghgRiyadAmeri',
+      { expiresIn: "1h" }
+    );
+
+    res.setHeader('Authorization', `Bearer ${token}`);
+    return res.status(200).json({
+      success: true,
+      status: 200,
+      name: foundUser.name,
+      email: foundUser.email,
+      id: foundUser._id,
+      profile_Picture: foundUser.profile_Picture,
+      shopOrSupplier: foundUser.shopOrSupplier,
+      date: foundUser.date,
+      message: "Login successful",
+    });
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: "Server error" });
   }
 });
+
 
 // Get all suppliers
 router.get('/getSupplier', async (req, res) => {

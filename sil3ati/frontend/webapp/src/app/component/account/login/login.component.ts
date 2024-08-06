@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CreateService } from '../../../services/create.service';
 import { Router } from '@angular/router';
 import { error } from 'console';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -28,27 +28,28 @@ export class LoginComponent {
     });
   }
 
-  constructor( private _shared : CreateService , private router: Router){}
+  constructor( private router: Router , private http : HttpClient){}
 
   checkpass() {
-    this._shared.checkpassword(this.user)
-      .subscribe(
-        res => {
+    this.http.post('http://127.0.0.1:3000/user/login', this.user).subscribe(
+      (res: any) => {
+        if (res.body.success) {
+          const token = res.headers.get("Authorization")
+          if(token){
+            localStorage.setItem('token', token);
+          }
+          this.router.navigate(['home']);
           console.log(res);
-          this.router.navigate(['/home']);
-          alert('Login successfully');
-        },
-        error => {
-          console.log('Error checking password:', error);
-          this.router.navigate(['/failure-register']);
-          alert('Login failed: ' + error.message);
+          localStorage.setItem('token', JSON.stringify(res.data));
+        } else {
+          alert('Wrong Email or Password');
         }
-      );
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
-
-
-
-  
 
 }
