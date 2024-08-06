@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
 
   try {
     const data = jwt.verify(authHeader, 'hgjkhgkjtygjhktg86r565GFHGHFTWFERgjhghgRiyadAmeri');
-    req.user = data; // Attach the decoded data to the request object
+    req.user = data; 
     next();
   } catch (err) {
     return res.sendStatus(401);
