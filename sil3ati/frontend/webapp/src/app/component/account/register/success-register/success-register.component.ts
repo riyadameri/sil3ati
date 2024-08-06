@@ -35,7 +35,7 @@ export class SuccessRegisterComponent {
       if (userAccountId) {
         const formData = new FormData();
         formData.append('profile_Picture', this.file);
-        this.http.post(`jhk/${userAccountId}`, formData).subscribe({
+        this.http.put(`http://127.0.0.1:3000/user/updateProfilePicture/${userAccountId}`, formData).subscribe({
           next: response => console.log('Profile picture uploaded', response),
           error: error => console.error('Upload error', error)
         });

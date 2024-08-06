@@ -13,10 +13,14 @@ export class CreateService {
   }
 
   checkpassword(user:any){
-    return this.http.post('http://127.0.0.1:3000/router/user/login',user);
+    return this.http.post('http://127.0.0.1:3000/user/login',user);
   }
 
   saveProduct(product:any){
     return this.http.post('http://127.0.0.1:3000/products/addProduct',product)
+  }
+
+  geteditproduct(id:any , editproduct:any){
+    return this.http.put(`http://127.0.0.1:3000/products/edit/${id}` , editproduct )
   }
 }

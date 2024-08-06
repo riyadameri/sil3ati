@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'',component:HomePageComponent},
   {path:'register', component : RegisterComponent},
   {path:'login', component : LoginComponent},
-  {path:'confirmation-success',component:SuccessRegisterComponent},
+  {path:'success-register',component:SuccessRegisterComponent},
   {path:'confirmation-failure',component:FailureRegisterComponent},
   {path:'edit/:id',component:EditComponent}
 

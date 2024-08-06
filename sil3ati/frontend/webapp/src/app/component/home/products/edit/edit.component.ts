@@ -19,13 +19,16 @@ export class EditComponent implements OnInit {
   id:any;
 
   update(){
-    
+
   }
 
   
   constructor(private _shared : CreateService , private act : ActivatedRoute){}
 
   ngOnInit(): void {
-    this.id= this.act.snapshot.paramMap.get('id')
+    this.id= this.act.snapshot.paramMap.get('id');
+
+    
+
   }
 }
