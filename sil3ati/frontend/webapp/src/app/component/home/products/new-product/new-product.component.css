@@ -1,0 +1,126 @@
+.new_products{
+    width: calc(100% - 78px);
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: 0;
+    height: 140vh;
+}
+.new_products img{
+    filter: brightness(50%);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+}
+
+.title{
+    text-align: center;
+    padding: 0 20px;
+    width: calc(100% - 100px);
+    position: absolute;
+    right: 11px;
+    color: white;
+    font-size: 2em;
+    z-index: 999;
+    margin: 10px;
+}
+.add_products{
+    width: calc(100% - 78px);
+    height: auto;
+    position: absolute;
+    right:30px;
+    top: 140px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: solid 2px #34fd92;
+}
+
+.inputbox{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.inputbox label{
+    font-size: 1.5em;
+    margin: 5px;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+}
+
+.inputbox input{
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius:50px ;
+    padding: 10px 30px;
+    font-size: 1.2em;
+    font-weight: 500;
+    background-color: rgb(217, 217, 217);
+}
+.price_quanti{
+    display: flex;
+    flex-direction: row;
+}
+.price_quanti input{
+    width: 100%;
+}
+.inputbutton{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+button{
+    width: 100%;
+    height: auto;
+    border: none;
+    border-radius:50px ;
+    padding: 20px 30px;
+    font-size: 1.2em;
+    font-weight: 500;
+    background-color: #64d488;
+    color: #f2f2f2;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: all 0.5s;
+    z-index: 3;
+}
+
+button::before{
+    content: '';
+    height: 60px;
+    border-radius: 100px;
+    background: #f2f2f2;
+    width: 0px;
+    position: absolute;
+    left: 65px;
+    top: 560px;
+    transition: 0.5s;
+    z-index: -1;
+}
+button:hover::before{
+    width: 88.2%;
+    right: unset;
+}
+button:hover{
+    color: #64d488;
+}
+
+

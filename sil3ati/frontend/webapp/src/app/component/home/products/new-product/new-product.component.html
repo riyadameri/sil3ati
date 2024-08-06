@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<app-nav></app-nav>
+
+<div class="new_products">
+    <img src="assets/bgproduct.jpg">
+    <h1 class="title">Add your Product</h1>
+    <div class="add_products" >
+        <div class="inputbox">
+            <label>Name Product</label>
+            <input [(ngModel)]="product.name" type="text" placeholder="Name">
+        </div>
+        <div class="inputbox">
+            <label>Category</label>
+            <input [(ngModel)]="product.category" type="text" placeholder="clothes , food , build ......">
+        </div>
+        <div class="price_quanti">
+            <div class="inputbox">
+                <label>Price</label>
+                <input [(ngModel)]="product.price" type="number" placeholder="Price">
+            </div>
+            <div class="inputbox">
+                <label>Quantity</label>
+                <input [(ngModel)]="product.quantity" type="number" placeholder="Quantity">
+            </div>
+        </div>
+        <div class="inputbox">
+            <label>Description</label>
+            <input [(ngModel)]="product.description" type="text" placeholder="Describe yout Product">
+        </div>
+        <div class="inputbox">
+            <label>Image</label>
+            <input [(ngModel)]="product.image" type="file" placeholder="Price">
+        </div>
+        <div class="inputbutton">
+            <button class="add" (click)="Save()"><span>Add Product</span></button>
+        </div>
+    </div>
+</div>
+

@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SuccessRegisterComponent } from './component/account/register/success-register/success-register.component';
 import { FailureRegisterComponent } from './component/account/register/failure-register/failure-register.component';
 import { ProductsComponent } from './component/home/products/products.component';
+import { EditComponent } from './component/home/products/edit/edit.component';
+import { NewProductComponent } from './component/home/products/new-product/new-product.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { ProductsComponent } from './component/home/products/products.component'
     KeyPassComponent,
     SuccessRegisterComponent,
     FailureRegisterComponent,
-    ProductsComponent
+    ProductsComponent,
+    EditComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
