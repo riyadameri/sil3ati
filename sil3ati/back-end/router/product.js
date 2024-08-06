@@ -48,20 +48,5 @@ router.delete(
   }
 )
 
-router.get(
-  '/getProducts',
-  authMiddleware,
-  async (req, res) => {
-    try {
-      const products = await Product.find();
-      return res.status(200).json({
-        message: "Products fetched successfully",
-        data: products
-      });
-    } catch (err) {
-      console.log(err);
-      return res.status(500).json({ error: "Server error" });
-    }
-  }
-)
+
 module.exports = router;
