@@ -163,6 +163,8 @@ router.post('/login', async (req, res) => {
       shopOrSupplier: foundUser.shopOrSupplier,
       date: foundUser.date,
       message: "Login successful",
+      token : token 
+      
     });
   } catch (err) {
     console.log(err);
