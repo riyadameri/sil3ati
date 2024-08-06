@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CreateService } from '../../../services/create.service';
 import { Router } from '@angular/router';
 import { error } from 'console';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient  , HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -33,20 +33,18 @@ export class LoginComponent {
   checkpass() {
     this.http.post('http://127.0.0.1:3000/user/login', this.user).subscribe(
       (res: any) => {
-        if (res.body.success) {
-          const token = res.headers.get("Authorization")
-          if(token){
-            localStorage.setItem('token', token);
-          }
-          this.router.navigate(['home']);
-          console.log(res);
-          localStorage.setItem('token', JSON.stringify(res.data));
+        if (res.success) {
+          localStorage.setItem('token', res.token);
+          localStorage.setItem('token', res.id);
+          this.router.navigate(['/home']);
+          console.log(res)
         } else {
-          alert('Wrong Email or Password');
+          console.log(res.data.token);
         }
       },
       (error) => {
-        console.error(error);
+        console.log(error);
+    
       }
     );
   }
