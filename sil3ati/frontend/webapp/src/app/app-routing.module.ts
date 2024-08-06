@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'login', component : LoginComponent},
   {path:'confirmation-success',component:SuccessRegisterComponent},
   {path:'confirmation-failure',component:FailureRegisterComponent},
-  {path:'edit',component:EditComponent}
+  {path:'edit/:id',component:EditComponent}
 
 ];
 
