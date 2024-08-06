@@ -8,7 +8,7 @@
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    background:linear-gradient(transparent,rgb(79, 255, 134)) ;
+    background-color: #71ffaa52;
 }
 
 .products{

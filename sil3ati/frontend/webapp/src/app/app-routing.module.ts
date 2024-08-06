@@ -6,6 +6,7 @@ import { LoginComponent } from './component/account/login/login.component';
 import { SuccessRegisterComponent } from './component/account/register/success-register/success-register.component';
 import { FailureRegisterComponent } from './component/account/register/failure-register/failure-register.component';
 import { NewProductComponent } from './component/home/products/new-product/new-product.component';
+import { EditComponent } from './component/home/products/edit/edit.component';
 
 const routes: Routes = [
   {path:'home', component: HomePageComponent },
@@ -15,8 +16,8 @@ const routes: Routes = [
   {path:'login', component : LoginComponent},
   {path:'success-register',component:SuccessRegisterComponent},
   {path:'confirmation-failure',component:FailureRegisterComponent},
-  
-  
+  {path:'edit',component:EditComponent}
+
 ];
 
 @NgModule({
