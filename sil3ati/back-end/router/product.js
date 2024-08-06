@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/products');
 const authMiddleware = require('../authMiddleware');
+const { Message } = require('twilio/lib/twiml/MessagingResponse');
 
 router.post('/addProduct', authMiddleware, (req, res) => {
   const { name, price, image, description, category, quantity } = req.body;
@@ -64,4 +65,5 @@ router.get(
     }
   }
 )
+
 module.exports = router;
