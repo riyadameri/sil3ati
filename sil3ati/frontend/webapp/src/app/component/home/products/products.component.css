@@ -1,68 +1,67 @@
 .all_products {
-    width: calc(100% - 78px);
-    position: absolute;
-    right: 0;
-    top: 290px;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    background-color: #71ffaa52;
-    height: 140vh;
-    justify-content: start;
+  width: calc(100% - 78px);
+  position: absolute;
+  right: 0;
+  top: 290px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #71ffaa52;
+  height: 140vh;
+  justify-content: start;
 }
 
 .products{
-    width: auto;
-    margin-left:0.5vh;
-    height: auto;
-    background-color: white;
-    padding: 20px;
-    text-align: center;
-    margin-bottom:5px ;
+  width: auto;
+  margin-left:0.5vh;
+  height: auto;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  margin-bottom:5px ;
 
 }
 .card-image img{
-    width: 300px;
-    height: 250px;
-    border-radius: 5px;
+  width: 300px;
+  height: 250px;
+  border-radius: 2px;
 }
 .card-info{
-    padding: 5px;
+  padding: 5px;
 }
 .card-info h2{
-    text-align: center;
-    color: #000;
-    margin: 3px;
+  text-align: center;
+  color: #000;
+  margin: 3px;
 }
 .card-info p {
-    text-align: left;
-    font-size: 1.1em;
-    margin: 5px;
+  text-align: left;
+  font-size: 1.1em;
+  margin: 5px;
 }
 .card-info .prix{
-    text-align: right;
-    font-size: 1.1em;
-    margin: 5px;
-    font-weight: bold;
+  text-align: right;
+  font-size: 1.1em;
+  margin: 5px;
+  font-weight: bold;
 }
 .edit_btn{
-    background-color: #4CAF50;
-    color: #f2f2f2;
-    font-weight: 500;
-    font-size: 1.5em;
-    height: 40px;
-    width: 100%;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.5s;
+  background-color: #4CAF50;
+  color: #f2f2f2;
+  font-weight: 500;
+  font-size: 1.5em;
+  height: 40px;
+  width: 100%;
+  margin: 5px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 
 .edit_btn:hover{
-    background-color: #7aff7e;
-    color: #198b1d;
+  background-color: #7aff7e;
+  color: #198b1d;
 }
-

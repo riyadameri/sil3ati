@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/products');
 const authMiddleware = require('../authMiddleware');
+const { Message } = require('twilio/lib/twiml/MessagingResponse');
 
 router.post('/addProduct', authMiddleware, (req, res) => {
   const { name, price, image, description, category, quantity } = req.body;
@@ -29,6 +30,7 @@ router.post('/addProduct', authMiddleware, (req, res) => {
     return res.status(500).json({ error: "Something went wrong" });
   }
 });
+
 router.delete(
   '/deleteProduct/:id',
   authMiddleware,
@@ -45,6 +47,40 @@ router.delete(
       console.log(err);
       return res.status(500).json({ error: "Server error" });
     }
+  }
+)
+
+router.get(
+  '/getProducts',
+  async (req, res) => {
+    try {
+      const products = await Product.find();
+      return res.status(200).json({
+        message: "Products fetched successfully",
+        data: products
+      });
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json({ error: "Server error" });
+    }
+  }
+)
+
+router.get(
+  '/getAllProductsOfUser/:id',
+  (req,res) =>{
+    const { id } = req.params;
+    Product.find({supplierId: id})
+    .then((products) => {
+      return res.status(200).json({
+        message: "Products fetched successfully",
+        data: products
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({ error: "Server error" });
+    });
   }
 )
 

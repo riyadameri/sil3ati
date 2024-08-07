@@ -30,6 +30,11 @@
 .sidebar .logo-details .icon{
     opacity: 0;
     transition: all 0.5s ease;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    height: 50px;
+    width: 70px;
 }
 
 .sidebar .logo-details .logo_name{
@@ -38,6 +43,9 @@
     font-weight: 600;
     opacity: 0;
     transition: all 0.5s ease;
+    position: absolute;
+    top: 25px;
+    left: 70px;
 }
 
 .sidebar.open .logo-details .icon,
@@ -236,5 +244,5 @@
 }
 .logOut{
   position : relative ;
-  top: 120px ;
+  bottom: -40px ;
 }

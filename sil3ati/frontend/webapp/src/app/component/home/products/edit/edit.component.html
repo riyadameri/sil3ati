@@ -8,25 +8,25 @@
     <div class="add_products" >
         <div class="inputbox">
             <label>Name Product</label>
-            <input  type="text" placeholder="Name">
+            <input [(ngModel)]="editProduct.name" type="text" placeholder="Name">
         </div>
         <div class="inputbox">
             <label>Category</label>
-            <input  type="text" placeholder="clothes , food , build ......">
+            <input [(ngModel)]="editProduct.category" type="text" placeholder="clothes , food , build ......">
         </div>
         <div class="price_quanti">
             <div class="inputbox">
                 <label>Price</label>
-                <input  type="number" placeholder="Price">
+                <input [(ngModel)]="editProduct.price" type="number" placeholder="Price">
             </div>
             <div class="inputbox">
                 <label>Quantity</label>
-                <input  type="number" placeholder="Quantity">
+                <input [(ngModel)]="editProduct.quntity" type="number" placeholder="Quantity">
             </div>
         </div>
         <div class="inputbox">
             <label>Description</label>
-            <input  type="text" placeholder="Describe yout Product">
+            <input [(ngModel)]="editProduct.describtion" type="text" placeholder="Describe yout Product">
         </div>
         <div class="inputbox">
             <label>Image</label>

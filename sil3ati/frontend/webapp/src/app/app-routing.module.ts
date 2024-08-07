@@ -16,9 +16,11 @@ const routes: Routes = [
   {path:'login', component : LoginComponent},
   {path:'success-register',component:SuccessRegisterComponent},
   {path:'confirmation-failure',component:FailureRegisterComponent},
+  {path:'edit/:id',component:EditComponent},
   {path:'edit',component:EditComponent},
   {path:'', component: HomePageComponent },
   {path:'**', component: HomePageComponent },
+
 ];
 
 @NgModule({
