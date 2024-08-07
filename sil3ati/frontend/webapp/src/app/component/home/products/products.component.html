@@ -1,15 +1,18 @@
-<div class="all_products" >
-    <div class="products" *ngFor="let item of items">
-        <div class="card-image">
-            <img src="{{item.image}}" alt="">
-        </div>
-        <div class="card-info">
-            <h2>{{item.name}}</h2>
-            <p class="quantity">{{item.quantity}} piece on box</p>
-            <p class="prix">{{item.price}} Dz</p>
-            <p class="quantity">{{item.Description}}</p>
-        </div>
-        <button class="edit_btn" [routerLink]="['/edit']">Edit</button>
+
+
+<div class="all_products">
+  <div class="products"  *ngFor="let products of products">
+    <div class="card-image">
+        <img src="assets/434096415_1127376984952446_3745839893712808449_n.jpg" alt="">
     </div>
-    
+    <div class="card-info">
+        <h2>{{products.name}}</h2>
+        <p class="quantity">{{products.quantity}} piece on box</p>
+        <p class="prix">{{products.price}} Dz</p>
+        <p class="categ">{{products.category}}</p>
+    </div>
+    <button class="edit_btn" [routerLink]="['/edit']">Edit</button>
+  </div> 
+
 </div>
+

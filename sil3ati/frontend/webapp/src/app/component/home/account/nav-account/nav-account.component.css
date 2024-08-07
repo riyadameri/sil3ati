@@ -1,0 +1,48 @@
+.nav{
+    width: 300px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #50ff7f4a;
+    padding: 20px;
+}
+
+.nav .title{
+    font-size: 1.2em;
+    color: #000;
+    margin: 10px;
+}
+.nav .title h1 span{
+    font-size: 0.5em;
+    color: #0000006e;
+}
+.nav_links{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.nav_links ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.nav_links ul li{
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    border-bottom: 2px  solid #0000004d ;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #000000bc;
+}
+.nav_links ul li i{
+    margin-right: 10px;
+    font-size: 1.1em;
+    color: #000000bc;
+}
+.nav_links ul li .active{
+    color: #000;
+    border-bottom: 2px  solid #000000;
+}

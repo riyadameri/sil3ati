@@ -8,8 +8,8 @@
     overflow-x: hidden;
     width: 95%;
     right:-5%;
-    
 }
+
 
 .home img{
     filter: brightness(50%);
@@ -82,7 +82,7 @@
     color: #fff;
     border: none;
     height: 60px;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
     transition: all 0.5s;
 }

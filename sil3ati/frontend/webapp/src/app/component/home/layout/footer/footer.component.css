@@ -1,0 +1,64 @@
+.footer{
+    height: auto;
+    padding: 10px;
+    width: calc(100% - 78px);
+    
+    background-color: rgb(0, 169, 59); 
+    display: flex;
+    flex-direction: column;
+}
+.befor_hr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+.logo img{
+    width: 150px;
+    margin: 10px;
+}
+.logo h1{
+    font-size: 30px;
+    color: #fff;
+    position: relative;
+    top: 50px;
+    right: 30px;
+}
+.nav_links{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 50px;
+}
+.nav_links ul{
+    display: flex;
+    flex-direction: row;
+}
+.nav_links ul li{
+    margin: -5px 20px ;
+}
+.nav_links ul li a{
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.nav_links ul li::marker{
+    color: #fff;
+    font-size: 2em;
+}
+hr{
+    border: none;
+    width: 100%;
+    padding: 1px;
+    background-color: #fff;
+}
+.copyright{
+    text-align: center;
+    margin: 40px ;
+    font-size: 0.9em;
+    color: #fff;
+}

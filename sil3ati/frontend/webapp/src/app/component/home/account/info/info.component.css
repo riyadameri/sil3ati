@@ -1,0 +1,81 @@
+.edit_user{
+    width: calc(100% - 300px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+.account_header{
+    margin: 30px;
+}
+
+.account_header h1{
+    font-size: 2em;
+}
+.account_header p{
+    font-size: 1.2em;
+}
+
+.info_user_card{
+    border: 2px solid #00000055;
+    border-radius: 15px;
+    margin: 20px;
+    padding: 20px;
+    text-align: left;
+}
+.info_user_card h4{
+    font-size: 1.5em;
+    margin: 0 20px 10px 20px ;
+}
+.edit{
+    height: 50px;
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    font-size: 1.2em;
+    background: linear-gradient(90deg in oklab, rgb(0, 205, 140), rgb(162, 76, 0));
+    border: none;
+    border-radius:15px ;
+    box-shadow:  5px 5px 10px #0000009f;
+    position: relative;
+    right: -700px;
+    top: 0px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.edit:hover{
+    background:linear-gradient(45deg in oklab,rgb(221, 0, 0),rgb(0, 205, 140)); 
+    transform: translateY(-5px);
+}
+.basic_info,
+.contact_info{
+    font-size: 1.2em;
+    background-color: #d2d2d2;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+}
+.basic_info p,
+.contact_info p{
+    font-size: 1.4em;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.basic_info .name ,
+.basic_info .sho_or_sup,
+.contact_info .email,
+.contact_info .phone{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+.basic_info .name label,
+.basic_info .sho_or_sup label,
+.contact_info .email label,
+.contact_info .phone label{
+    margin: 10px;
+}
