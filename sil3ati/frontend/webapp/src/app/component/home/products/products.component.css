@@ -6,16 +6,17 @@
     padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
     background-color: #71ffaa52;
+    text-align: center;
 }
 
 .products{
     width: auto;
     height: auto;
-    margin: 10px;
-    border-radius:15px;
+    margin: 2px;
+    border-radius:3px;
     background-color: white;
     padding: 20px;
     text-align: center;
@@ -23,7 +24,7 @@
 .card-image img{
     width: 300px;
     height: 250px;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 .card-info{
     padding: 5px;

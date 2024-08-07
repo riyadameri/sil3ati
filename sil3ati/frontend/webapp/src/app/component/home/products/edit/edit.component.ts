@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateService } from '../../../../services/create.service';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit',
@@ -23,7 +23,7 @@ export class EditComponent implements OnInit {
   }
 
   
-  constructor(private _shared : CreateService , private act : ActivatedRoute){}
+  constructor(private http : HttpClient , private act : ActivatedRoute){}
 
   ngOnInit(): void {
     this.id= this.act.snapshot.paramMap.get('id');
