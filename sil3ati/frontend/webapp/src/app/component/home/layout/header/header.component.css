@@ -1,29 +1,49 @@
-header{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    align-items: center;
-    text-align: center;
-    background-color: #00BF63;
-    padding: 0px 20px;
-    width: 95%;
-    position: relative;
-    right:-5%;
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 10vh;
+  background-color: #00BF63;
+  color: #333;
+  
 }
-header p{
-    color: white;
-    font-size: 3em;
+
+.logo img {
+  height: 40px;
 }
-span{
-    color: #005c1d;
-    font-weight: 700;
+
+.title {
+  font-size: 1.5em;
 }
-img{
-    width: 100px;
-    margin: -10px;
+
+.account-info, .location-info {
+  display: flex;
+  align-items: center;
 }
-label{
-    font-size: 2em;
-    font-weight: 700;
-    color: #fff;
+
+.account img {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
 }
+
+.account .fa, .location .fa {
+  margin-left: 10px;
+}
+
+.account-info .fa-times {
+  cursor: pointer;
+}
+
+.location-info {
+  font-size: 0.9em;
+}
+
+.location-info .fa-map-marker {
+  margin-right: 5px;
+}
+
+

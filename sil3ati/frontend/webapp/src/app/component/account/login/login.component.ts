@@ -35,7 +35,14 @@ export class LoginComponent {
       (res: any) => {
         if (res.success) {
           localStorage.setItem('token', res.token);
-          localStorage.setItem('token', res.id);
+          localStorage.setItem('id', res.id);
+          localStorage.setItem('username',res.name);
+          localStorage.setItem('email',res.email);
+          localStorage.setItem('phone',res.phone);
+          localStorage.setItem('address',res.address);
+          localStorage.setItem('profile_Picture',res.profile_Picture);
+          localStorage.setItem('shopOrSupplier',res.shopOrSupplier);
+          
           this.router.navigate(['/home']);
           console.log(res)
         } else {

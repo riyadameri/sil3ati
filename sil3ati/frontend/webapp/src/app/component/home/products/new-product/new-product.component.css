@@ -45,7 +45,6 @@
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    backdrop-filter: blur(20px);
     border-radius: 20px;
     border: solid 2px #34fd92;
 }

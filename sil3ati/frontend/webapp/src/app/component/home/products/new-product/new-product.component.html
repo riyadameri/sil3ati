@@ -5,14 +5,14 @@
 <div class="new_products">
     <img src="assets/bgproduct.jpg">
     <h1 class="title">Add your Product</h1>
-    <div class="add_products" >
+    <div class="add_products">
         <div class="inputbox">
             <label>Name Product</label>
             <input [(ngModel)]="product.name" type="text" placeholder="Name">
         </div>
         <div class="inputbox">
             <label>Category</label>
-            <input [(ngModel)]="product.category" type="text" placeholder="clothes , food , build ......">
+            <input [(ngModel)]="product.category" type="text" placeholder="clothes, food, build...">
         </div>
         <div class="price_quanti">
             <div class="inputbox">
@@ -26,15 +26,14 @@
         </div>
         <div class="inputbox">
             <label>Description</label>
-            <input [(ngModel)]="product.description" type="text" placeholder="Describe yout Product">
+            <input [(ngModel)]="product.description" type="text" placeholder="Describe your Product">
         </div>
         <div class="inputbox">
             <label>Image</label>
-            <input [(ngModel)]="product.image" type="file" placeholder="Price">
+            <input type="file" (change)="onFileChange($event)">
         </div>
         <div class="inputbutton">
-            <button class="add" (click)="Save()"><span>Add Product</span></button>
+            <button class="add" (click)="save()"><span>Add Product</span></button>
         </div>
     </div>
 </div>
-

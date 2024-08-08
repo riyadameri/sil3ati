@@ -3,24 +3,45 @@ const router = express.Router();
 const Product = require('../models/products');
 const authMiddleware = require('../authMiddleware');
 const { Message } = require('twilio/lib/twiml/MessagingResponse');
+const multer = require('multer');
+const path = require('path');
 
-router.post('/addProduct', authMiddleware, (req, res) => {
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/products/images'); // Adjusted to be plural
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + 'redox' + '-' + Math.round(Math.random() * 1e9) + path.extname(file.originalname);
+    cb(null, uniqueSuffix);
+  }
+});
+
+const upload = multer({ storage });
+
+
+router.post('/addProduct', authMiddleware, upload.single('ProductImage'), (req, res) => {
+  console.log('Uploaded file:', req.file); // Debugging line
+
   const { name, price, image, description, category, quantity } = req.body;
-  if (!name || !price || !image || !description || !category || !quantity) {
+  if (!name || !price || !description || !category || !quantity) {
     return res.status(422).json({ error: "Please add all the fields" });
   }
+
   try {
     const supplierId = req.user.id; // Extract supplierId from req.user
     const newProduct = new Product({
       name,
       price,
-      image,
+      image: req.file?.path || '', // Use optional chaining to avoid errors
       description,
       category,
       quantity,
       date: new Date(),
-      supplierId: supplierId // Set supplierId from the token
+      supplierId: supplierId,
+      profile_Picture: req.file?.path || '' 
     });
+
     newProduct.save()
       .then(() => res.status(200).json({ message: "Product added successfully" }))
       .catch(err => res.status(500).json({ error: "Something went wrong" }));
@@ -30,6 +51,7 @@ router.post('/addProduct', authMiddleware, (req, res) => {
     return res.status(500).json({ error: "Something went wrong" });
   }
 });
+
 
 router.delete(
   '/deleteProduct/:id',

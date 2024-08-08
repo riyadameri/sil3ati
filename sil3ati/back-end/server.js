@@ -1,6 +1,7 @@
 // importing lb 
 const express = require('express');
 const app = express();
+const path = require('path');
 
 // importing connection with data bases 
 require('./config/connection');
@@ -12,6 +13,8 @@ app.use(express.json());
 AccountApi = require('./router/user')
 productsApi = require('./router/product')
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads/user/profile_Pictures')));
+
 
 // import router
 app.use('/user',AccountApi);
@@ -22,3 +25,4 @@ port = process.env.PORT || 3000
 const server = app.listen(port, () => {
   console.log(`server status : working on port ${port}`);
 })
+

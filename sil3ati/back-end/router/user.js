@@ -8,6 +8,7 @@ const multer = require('multer');
 const path = require('path');
 const jwt = require('jsonwebtoken');
 const supplier = require('../models/user');
+const authMiddleware = require('../authMiddleware');
 
 // Configure multer storage
 const storage = multer.diskStorage({
@@ -90,7 +91,8 @@ router.post('/confirm/:id', async (req, res) => {
       phone,
       address,
       date: new Date(),
-      password: hashedPassword
+      password: hashedPassword,
+      profile_Picture: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
     });
     await newSupplier.save();
     await Key.findByIdAndDelete(id); 
@@ -147,6 +149,9 @@ router.post('/login', async (req, res) => {
         id: foundUser._id,
         profile_Picture: foundUser.profile_Picture,
         shopOrSupplier: foundUser.shopOrSupplier,
+        address : foundUser.address,
+        date : foundUser.date,
+        phone : foundUser.phone,
       },
       'hgjkhgkjtygjhktg86r565GFHGHFTWFERgjhghgRiyadAmeri',
       { expiresIn: "1h" }
@@ -163,7 +168,9 @@ router.post('/login', async (req, res) => {
       shopOrSupplier: foundUser.shopOrSupplier,
       date: foundUser.date,
       message: "Login successful",
-      token : token 
+      token : token ,
+      phone : foundUser.phone,
+      address : foundUser.address
       
     });
   } catch (err) {
@@ -174,7 +181,7 @@ router.post('/login', async (req, res) => {
 
 
 // Get all suppliers
-router.get('/getSupplier', async (req, res) => {
+router.get('/getUser', async (req, res) => {
   try {
     const suppliers = await Supplier.find();
     return res.status(200).json({
@@ -196,30 +203,21 @@ router.get('/getSupplier', async (req, res) => {
     return res.status(500).json({ error: "Server error" });
   }
 });
-//get Supplier By Id
-router.get('/getSupplierById/:id', async (req, res) => {
-  const { id } = req.params;
-  try {
-    const foundSupplier = await Supplier.findById(id);
-    if (!foundSupplier) {
-      return res.status(404).json({ error: "Supplier not found" });
-    }
-    return res.status(200).json({
+
+
+router.get("/getUserDataById/:id",authMiddleware,(req,res)=>{
+  const id = req.params ;
+  Supplier.findById(id).then((supplier)=>{
+    res.status(200).json({
       message: "Supplier fetched successfully",
-      data: {
-        name: foundSupplier.name,
-        email: foundSupplier.email,
-        id: foundSupplier._id,
-        profile_Picture: foundSupplier.profile_Picture,
-        shopOrSupplier: foundSupplier.shopOrSupplier,
-        date: foundSupplier.date
-      }
-    });
-  } catch (err) {
+      data: supplier,
+    })
+  })
+  .catch((err)=>{
     console.log(err);
     return res.status(500).json({ error: "Server error" });
-  }
-});
+  })
+})
 
 
 
