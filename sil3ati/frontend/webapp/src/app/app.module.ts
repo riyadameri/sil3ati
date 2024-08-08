@@ -21,6 +21,13 @@ import { FailureRegisterComponent } from './component/account/register/failure-r
 import { ProductsComponent } from './component/home/products/products.component';
 import { EditComponent } from './component/home/products/edit/edit.component';
 import { NewProductComponent } from './component/home/products/new-product/new-product.component';
+import { NavAccountComponent } from './component/home/account/nav-account/nav-account.component';
+import { HomeaccountComponent } from './component/home/account/homeaccount/homeaccount.component';
+import { InfoComponent } from './component/home/account/info/info.component';
+import { SecurityComponent } from './component/home/account/security/security.component';
+import { PaymmentComponent } from './component/home/account/paymment/paymment.component';
+import { DataproComponent } from './component/home/account/datapro/datapro.component';
+import { UpdateUserComponent } from './component/home/account/update-user/update-user.component';
 
 
 @NgModule({
@@ -42,7 +49,14 @@ import { NewProductComponent } from './component/home/products/new-product/new-p
     FailureRegisterComponent,
     ProductsComponent,
     EditComponent,
-    NewProductComponent
+    NewProductComponent,
+    NavAccountComponent,
+    HomeaccountComponent,
+    InfoComponent,
+    SecurityComponent,
+    PaymmentComponent,
+    DataproComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,

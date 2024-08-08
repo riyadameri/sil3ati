@@ -1,0 +1,37 @@
+.account{
+    width: calc(100% - 300px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+.account_header{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0 10px 0;
+}
+.profile_image img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+.profile_username h2{
+    font-size: 2em;  
+}
+.account_hello{
+    margin: 50px 0 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.account_hello p{
+    font-size: 2em;
+}
+.account_hello img{
+    width: 70px;
+    position: relative;
+    top: -20px;
+    margin: 0 10px ;
+}
