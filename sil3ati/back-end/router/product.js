@@ -6,7 +6,6 @@ const { Message } = require('twilio/lib/twiml/MessagingResponse');
 const multer = require('multer');
 const path = require('path');
 
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/products/images'); // Adjusted to be plural
@@ -16,32 +15,25 @@ const storage = multer.diskStorage({
     cb(null, uniqueSuffix);
   }
 });
-
 const upload = multer({ storage });
-
-
 router.post('/addProduct', authMiddleware, upload.single('ProductImage'), (req, res) => {
   console.log('Uploaded file:', req.file); // Debugging line
-
-  const { name, price, image, description, category, quantity } = req.body;
+  const { name, price, description, category, quantity } = req.body;
   if (!name || !price || !description || !category || !quantity) {
     return res.status(422).json({ error: "Please add all the fields" });
   }
-
   try {
     const supplierId = req.user.id; // Extract supplierId from req.user
     const newProduct = new Product({
       name,
       price,
-      image: req.file?.path || '', // Use optional chaining to avoid errors
+      image: req.file?.path || "1234567890123456789012341723147017272-redox-379155292.png",
       description,
       category,
       quantity,
       date: new Date(),
       supplierId: supplierId,
-      profile_Picture: req.file?.path || '' 
     });
-
     newProduct.save()
       .then(() => res.status(200).json({ message: "Product added successfully" }))
       .catch(err => res.status(500).json({ error: "Something went wrong" }));
@@ -51,8 +43,6 @@ router.post('/addProduct', authMiddleware, upload.single('ProductImage'), (req, 
     return res.status(500).json({ error: "Something went wrong" });
   }
 });
-
-
 router.delete(
   '/deleteProduct/:id',
   authMiddleware,
@@ -71,7 +61,6 @@ router.delete(
     }
   }
 )
-
 router.get(
   '/getProducts',
   async (req, res) => {

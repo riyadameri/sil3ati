@@ -23,7 +23,7 @@ export class UserService {
   isLogedIn(){
     if(this.token){
       return true
-    
+
     }
     else{
       return false

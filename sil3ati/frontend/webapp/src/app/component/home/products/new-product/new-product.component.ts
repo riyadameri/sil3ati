@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-product',
@@ -7,7 +8,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./new-product.component.css']
 })
 export class NewProductComponent {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private router : Router 
+   ) { }
 
   product = {
     name: '',
@@ -15,7 +18,7 @@ export class NewProductComponent {
     description: '',
     price: '',
     quantity: '',
-    image: null as File | null // Changed to null for file type
+    image: null as File | null
   };
 
   onFileChange(event: any) {
@@ -35,7 +38,6 @@ export class NewProductComponent {
     if (this.product.image) {
       formData.append('ProductImage', this.product.image);
     }
-
     this.http.post(
       'http://localhost:3000/products/addProduct', formData,
       {
@@ -44,8 +46,17 @@ export class NewProductComponent {
         }
       }
     ).subscribe(
-      res => { alert("Product Added Successfully"); },
-      err => { console.log(err); }
+      res => { 
+        alert("Product Added Successfully");
+        this.router.navigate(['/home'])
+      },
+      err => {
+        console.error("Error occurred:", err);
+        alert(`Error: ${err.error?.message || 'Something went wrong'}`);
+      }
     );
   }
+  
+
+
 }

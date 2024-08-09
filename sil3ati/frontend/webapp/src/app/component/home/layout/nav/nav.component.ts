@@ -1,47 +1,44 @@
 import { Component } from '@angular/core';
+import { UserService } from '../../../../services/user.service';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrl: './nav.component.css'
+  styleUrls: ['./nav.component.css'] // Note: 'styleUrls' should be plural, not 'styleUrl'
 })
 export class NavComponent {
 
-  closeBtn(){
-    let sidebar = document.querySelector(".sidebar");
-    sidebar?.classList.toggle("open");
-    menuBtnChange();
+  constructor(private AccountService : UserService){}
 
-    function menuBtnChange(){
-      let sidebar = document.querySelector(".sidebar");
-      let closeBtn = document.querySelector("#btn");
-      if(sidebar?.classList.contains("open")){
-        closeBtn?.classList.replace("fa-bars", "fa-times");
-      }else{
-        closeBtn?.classList.replace("fa-times", "fa-bars");
+  closeBtn() {
+    this.toggleSidebar();
+  }
+
+  searchBtn() {
+    this.toggleSidebar();
+  }
+
+  toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const closeBtn = document.querySelector('#btn');
+    
+    if (sidebar) {
+      sidebar.classList.toggle('open');
+      this.menuBtnChange(sidebar, closeBtn);
+    }
+  }
+
+  menuBtnChange(sidebar: Element | null, closeBtn: Element | null) {
+    if (sidebar && closeBtn) {
+      if (sidebar.classList.contains('open')) {
+        closeBtn.classList.replace('fa-bars', 'fa-times');
+      } else {
+        closeBtn.classList.replace('fa-times', 'fa-bars');
       }
     }
   }
 
-  searchBtn(){
-    let sidebar = document.querySelector(".sidebar");
-    sidebar?.classList.toggle("open");
-    menuBtnChange();
-
-    function menuBtnChange(){
-      let sidebar = document.querySelector(".sidebar");
-      let closeBtn = document.querySelector("#btn");
-      if(sidebar?.classList.contains("open")){
-        closeBtn?.classList.replace("fa-times", "fa-bars");
-      }else{
-        closeBtn?.classList.replace("fa-bars", "fa-times");
-      }
-    }
+  logOut() {
+    this.AccountService.logOut();
   }
-  
-  
-
-  
-
-   
 }

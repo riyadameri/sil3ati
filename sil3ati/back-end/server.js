@@ -14,6 +14,7 @@ AccountApi = require('./router/user')
 productsApi = require('./router/product')
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads/user/profile_Pictures')));
+app.use('/Produploads', express.static(path.join(__dirname, 'uploads/products/images')));
 
 
 // import router

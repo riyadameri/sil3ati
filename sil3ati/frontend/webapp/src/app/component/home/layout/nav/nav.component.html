@@ -1,68 +1,64 @@
 <div class="sidebar">
-    <div class="logo-details">
-        <img src="assets/logoWhite.png" class="icon">
-        <span class="logo_name">Sil3ati</span>
-        <i class="fa fa-bars" aria-hidden="true" id="btn" (click)="closeBtn()"></i>
-    </div>
-    <ul class="nav_list">
-        <li>
-            <div>
-                <i class="fa fa-search" aria-hidden="true" (click)="searchBtn()"></i>
-                <input type="text" placeholder="Search ...">
-                <span class="tooltip">Search</span>
-            </div>
-        </li>
-
-        <li>
-            <div>
-                <i class="fa fa-th-large" aria-hidden="true"></i>
-                <span class="links_names">Dashboard</span>
-                <span class="tooltip">Dashboard</span>
-            </div>
-        </li>
-        
-        <li>
-            <div>
-                <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                <span class="links_names">Message</span>
-                <span class="tooltip">Message</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <i class="fa fa-folder" aria-hidden="true"></i>
-                <span class="links_names">File Manager</span>
-                <span class="tooltip">File</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                <span class="links_names">Order</span>
-                <span class="tooltip">Order</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <i class="fa fa-heart" aria-hidden="true"></i>
-                <span class="links_names">Saved</span>
-                <span class="tooltip">Saved</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <i class="fa fa-cog" aria-hidden="true"></i>
-                <span class="links_names">Settings</span>
-                <span class="tooltip">Settings</span>
-            </div>
-        </li>
-            
-        <li class='logOut'>
+  <div class="logo-details">
+      <img src="assets/logoWhite.png" class="icon" alt="Logo">
+      <span class="logo_name">Sil3ati</span>
+      <i class="fa fa-bars" aria-hidden="true" id="btn" (click)="closeBtn()"></i>
+  </div>
+  <ul class="nav_list">
+      <li>
+        <div>
+          <i class="fa fa-search" aria-hidden="true" (click)="searchBtn()"></i>
+          <input type="text" placeholder="Search ..." >
+          <span class="tooltip">Search</span>
+        </div>
+      </li>
+      <li>
           <div>
-            <i class="fa fa-sign-out" aria-hidden="true" id="log_out"></i>
-            <span class="links_names">LogOut</span>
+              <i class="fa fa-th-large" aria-hidden="true"></i>
+              <span class="links_names">Dashboard</span>
+              <span class="tooltip">Dashboard</span>
           </div>
-        </li>
-      
-    </ul>
+      </li>
+      <li>
+          <div>
+              <i class="fa fa-commenting-o" aria-hidden="true"></i>
+              <span class="links_names">Message</span>
+              <span class="tooltip">Message</span>
+          </div>
+      </li>
+      <li>
+          <div>
+              <i class="fa fa-folder" aria-hidden="true"></i>
+              <span class="links_names">File Manager</span>
+              <span class="tooltip">File</span>
+          </div>
+      </li>
+      <li>
+          <div>
+              <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              <span class="links_names">Order</span>
+              <span class="tooltip">Order</span>
+          </div>
+      </li>
+      <li>
+          <div>
+              <i class="fa fa-heart" aria-hidden="true"></i>
+              <span class="links_names">Saved</span>
+              <span class="tooltip">Saved</span>
+          </div>
+      </li>
+      <li>
+          <div>
+              <i class="fa fa-cog" aria-hidden="true"></i>
+              <span class="links_names">Settings</span>
+              <span class="tooltip">Settings</span>
+          </div>
+      </li>
+      <li class="logOut"  (click)="logOut()">
+          <div>
+              <i class="fa fa-sign-out" aria-hidden="true" id="log_out"></i>
+              <span class="links_names">Log Out</span>
+          </div>
+      </li>
+  </ul>
 </div>

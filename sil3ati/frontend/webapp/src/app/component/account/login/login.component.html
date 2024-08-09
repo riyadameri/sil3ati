@@ -1,41 +1,40 @@
-
 <div class="container-login">
   <img src="assets/background.jpg" class="bg" alt="background">
-  <!--login container-->
   <div class="wrapper">
-      <div class="form-box register">
-          <h2>Login</h2>
-          <form>
-              <div class="input-box errorEmail">
-                  <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                  <input [(ngModel)]="user.email" type="email" name="email" required>
-                  <label>Email</label>
-                  <p class="demo ERRmail" *ngIf="user.email === ''">You can't input null</p>
-              </div>
-              <div class="input-box pass">
-                  <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                  <input [(ngModel)]="user.password" type="password" name="password" required class="show">
-                  <label>Password</label>
-                  <p class="demo ERRpass" *ngIf="user.password == ''" >Your password is less than 8 characters</p>
-              </div>
-              <div class="Remember">
-                  <input type="checkbox" name="remember-me" class="checkbox" (click)="showpass()" id="togglePassword">
-                  <label>Show Password</label>
-              </div>
-              <button type="submit" (click)="checkpass()">login</button>
-          </form>
-          <div class="Register">
-              <label>Already haven't an account? <a href="#">Register</a></label>
-          </div>
-          <div class="get-app">
-              <label>Get The App</label>
-          </div>
-          <div class="application">
-              <a href="#"><img src="assets/app-store.png" class="phonedaw" alt="App Store"></a>
-              <h1></h1>
-              <hr>
-              <a href="#"><img src="assets/play-store.png" class="phonedaw"  alt="Play Store"></a>
-          </div>
+    <div class="form-box register">
+      <h2>Login</h2>
+      <form>
+        <div class="input-box errorEmail">
+          <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+          <input [(ngModel)]="user.email" type="email" name="email" required>
+          <label>Email</label>
+          <p class="demo ERRmail" *ngIf="user.email === ''">Email cannot be empty</p>
+        </div>
+      
+        <div class="input-box pass">
+          <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+          <input #passwordInput [(ngModel)]="user.password" type="password" name="password" required>
+          <label>Password</label>
+          <p class="demo ERRpass" *ngIf="user.password.length < 8">Password must be at least 8 characters</p>
+        </div>
+
+        <div class="Remember">
+          <input type="checkbox" name="remember-me" class="checkbox" (click)="showpass(passwordInput)" id="togglePassword">
+          <label for="togglePassword">Show Password</label>
+        </div>
+        <button type="button" (click)="checkpass()">Login</button>
+      </form>
+      <div class="Register">
+        <label>Don’t have an account? <a href="#">Register</a></label>
       </div>
+      <div class="get-app">
+        <label>Get The App</label>
+      </div>
+      <div class="application">
+        <a href="#"><img src="assets/app-store.png" class="app-icon" alt="App Store"></a>
+        <hr>
+        <a href="#"><img src="assets/play-store.png" class="app-icon" alt="Play Store"></a>
+      </div>
+    </div>
   </div>
 </div>

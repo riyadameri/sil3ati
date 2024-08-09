@@ -3,7 +3,7 @@
 <div class="all_products">
   <div class="products"  *ngFor="let products of products">
     <div class="card-image">
-        <img src="assets/434096415_1127376984952446_3745839893712808449_n.jpg" alt="">
+        <img [src]="'http://localhost:3000/Produploads/'+products.image.substring(24)" alt="product">
     </div>
     <div class="card-info">
         <h2>{{products.name}}</h2>
